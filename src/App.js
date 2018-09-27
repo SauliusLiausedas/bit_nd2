@@ -18,8 +18,7 @@ class App extends Component {
           </p>
         </div>
         <Forms />
-        <Body />
-        <Body />
+        
       </div>
     );
   }

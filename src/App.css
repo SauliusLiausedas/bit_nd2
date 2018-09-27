@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.loremTag {
+  width: 40%;
+  height: auto;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.2em;
+  color: darkgrey;
+}
+
+a:hover {
+  color: black;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.bannerTitle {
+  margin-left: 50px;
+  color: rgba(100, 100, 100, 0.9);
+}
+
+.banner {
+  margin-left: 30px;
+  width: 20%;
+  padding: 30px;
+  display: inline-block;
+}
+
+.left {
+  float: left;
+}
+
+.center {
+  text-align: justify;
+  border-left: 3px solid silver;
+  width: 39%;
+  height: 500px;
+  margin-bottom: 50px;
+}
+
+.right {
+  float: right;
+  margin-right: 30px;
+  text-align: right;
+}
+
+.banner > ul > li {
+  list-style-type: none;
+  margin-top: 5px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
