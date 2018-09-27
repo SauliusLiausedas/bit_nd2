@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import Body from './body.js'
-import './App.css';
+import Forms from './body/forms.js'
+import './stylesheets/App.css';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
             To get started, edit <code>src/App.js</code> and save to reload.
           </p>
         </div>
+        <Forms />
         <Body />
         <Body />
       </div>

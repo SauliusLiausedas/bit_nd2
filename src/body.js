@@ -30,12 +30,28 @@ class Left extends Component {
 }
 
 class Center extends Component {
+
+  constructor(props) {
+    super();
+    this.state = {
+      topText: "blabla"
+    }
+  }
+
+  addText() {
+    this.setState({topText: "tekstas"})
+  }
+
+  changeOnType(e) {
+    this.setState({topText: e.target.value})
+  }
+
   render() {
     return (
       <div className="banner center">
-          <h1 className="bannerTitle">Text</h1>
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare dignissim elit, vitae tristique nulla maximus in. Etiam ornare gravida vulputate. Nam vulputate at nibh quis bibendum. Aenean eu dolor at felis auctor faucibus. In vel eros elementum, iaculis elit ut, tristique odio. Donec blandit metus purus, quis ultrices mauris ultricies et. Maecenas mollis pulvinar lorem, non vestibulum risus eleifend in. Nullam eu aliquet justo. </p>
-          <img className="loremTag" src={lorem}/>
+          <h1> {this.state.topText} </h1>
+          <button onClick={()=>this.addText("test")}> Clickable </button><br/><br/>
+          <input onChange={(e)=> this.changeOnType(e)}/>
       </div>
     );
   }
