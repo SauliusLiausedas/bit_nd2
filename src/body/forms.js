@@ -47,7 +47,6 @@ class Forms extends Component {
 
   handleButtonClick(e) {
   	e.preventDefault()
-  	console.log(this.monthInput)
   	if (this.state.undo === false) {
 		stateCopy = this.state
 		this.setState({undo: true,
