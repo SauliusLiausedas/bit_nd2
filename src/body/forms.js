@@ -5,7 +5,8 @@ const monthsArr = ["January", "February", "March", "April", "May", "June", "July
 const buttonText = ["Reset", "Undo"]
 let stateCopy = {}
 
-
+let globalState = {}
+let setState;
 
 class Forms extends Component {
   
@@ -18,15 +19,21 @@ class Forms extends Component {
   	this.monthInput = React.createRef()
   	this.state = {
 	  		undo: false,
-			firstName: "",
-			lastName: "",
-			email: "",
-			password: "",
-			birthMonth: ""
+  			firstName: "",
+  			lastName: "",
+  			email: "",
+  			password: "",
+  			birthMonth: ""
   		}
+  	globalState = this.state
+  	setState = this.setState
   	}
 
   getInfo(e) {
+    console.log(this.state.undo)
+      if(this.state.undo === true){
+        this.setState({undo: false})
+      }
   	switch (e.target.id) {
   		case "firstName":
   		this.setState({firstName: e.target.value})
@@ -47,26 +54,29 @@ class Forms extends Component {
 
   handleButtonClick(e) {
   	e.preventDefault()
+    console.log(e.target)
   	if (this.state.undo === false) {
 		stateCopy = this.state
-		this.setState({undo: true,
-						firstName: "",
-						lastName: "",
-						email: "",
-						password: "",
-						birthMonth: ""
+		this.setState({
+            undo: true,
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            birthMonth: ""
 					})
 		this.firstNameInput.current.value = ""
 		this.lastNameInput.current.value = ""
 		this.emailInput.current.value = ""
 		this.passwordInput.current.value = ""
+		console.log(this.state)
 
   	} else {
   		this.setState(stateCopy)
   		this.firstNameInput.current.value = stateCopy.firstName
-		this.lastNameInput.current.value = stateCopy.lastName
-		this.emailInput.current.value = stateCopy.email
-		this.passwordInput.current.value = stateCopy.password
+  		this.lastNameInput.current.value = stateCopy.lastName
+  		this.emailInput.current.value = stateCopy.email
+  		this.passwordInput.current.value = stateCopy.password
   	}
   }
 
@@ -90,9 +100,15 @@ class Forms extends Component {
 }
 
 class Months extends Component {
+	monthChange(e) {
+  		globalState;
+  		setState;
+  		debugger;
+  	}
   render() {
+    console.log(this.props)
     return (
-        <select id="month" ref={this.monthInput}>
+        <select id="month" onChange={(e)=> this.monthChange(e)} ref={this.monthInput}>
         	{this.props.months.map(month => <option value={month}> {month} </option>)}
         </select>
     );
@@ -100,3 +116,5 @@ class Months extends Component {
 }
 
 export default Forms;
+
+// Kaip padaryti, kad select su optionsais veiktų vietoj nedarant naujo komponento
